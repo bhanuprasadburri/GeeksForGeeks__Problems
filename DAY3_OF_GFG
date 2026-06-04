@@ -1,0 +1,112 @@
+1.SMALLER AND LARGER IN SORTED
+Given a sorted array arr[] and a value target, return an array of size 2. The first value is the number of elements less than or equal to the target, and the second value is the number of elements greater than or equal to the target.
+SOURCE CODE : 
+        class Solution {
+            int[] getMoreAndLess(int[] arr, int target) {
+                int less=0,great=0;
+                for(int i=0;i<arr.length;i++){
+                    if(arr[i]<=target){
+                        less++;
+                    }
+                    if(arr[i]>=target){
+                        great++;
+                    }
+                }
+                return new int[]{less,great};
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/smaller-and-larger4005/1
+
+
+2.REVERSE AN ARRAY
+You are given an array of integers arr[]. You have to reverse the given array.
+SOURCE CODE : 
+        class Solution {
+            public void reverseArray(int arr[]) {
+                int i=0;
+                int j=arr.length-1;
+                int temp;
+                while(i<j){
+                    temp=arr[i];
+                    arr[i]=arr[j];
+                    arr[j]=temp;
+                    j--;
+                    i++;
+                }
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/reverse-an-array/1
+
+
+3.COUNT THE ZEROS
+Given an array arr of only 0's and 1's. The array is sorted in such a manner that all the 1's are placed first and then they are followed by all the 0's. Find the count of all the 0's.
+SOURCE CODE : 
+        class Solution {
+            int countZeroes(int[] arr) {
+                Arrays.sort(arr);
+                int count=0;
+                for(int i=0;i<arr.length;i++){
+                    if(arr[i]==0){
+                        count++;
+                    }
+                }
+                return count;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/count-the-zeros2550/1
+
+
+4.PRIME NUMBERS
+Given a number n, determine whether it is a prime number or not.
+SOURCE CODE : 
+        class Solution {
+            static boolean isPrime(int n) {
+                if(n<2){
+                    return false;
+                }
+                int count=0;
+                for(int i=2;i<=Math.sqrt(n);i++){
+                    if(n%i==0){
+                        count++;
+                    }
+                }
+                return count==0;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/prime-number2314/1
+
+
+5.FIRST OCCURRENCE IN SORTED
+Given a sorted array arr[] and an integer k, find the position(0-based indexing) at which k is present in the array using binary search. If k doesn't exist in arr[] return -1.
+SOURCE CODE : 
+        class Solution {
+            public int firstSearch(int[] arr, int k) {
+                for(int i=0;i<arr.length;i++){
+                    if(arr[i]==k){
+                        return i;
+                    }
+                }
+                return -1;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/binary-search-1587115620/1
+
+
+6.MOVE ALL ZEROES TO END
+You are given an array arr[] of non-negative integers. You have to move all the zeros in the array to the right end while maintaining the relative order of the non-zero elements. 
+The operation must be performed in place, meaning you should not use extra space for another array.
+SOURCE CODE : 
+        class Solution {
+            void pushZerosToEnd(int[] arr) {
+                int j=0;
+                for(int i=0;i<arr.length;i++){
+                    if(arr[i]!=0){
+                        int temp=arr[i];
+                        arr[i]=arr[j];
+                        arr[j]=temp;
+                        j++;
+                    }
+                }
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/move-all-zeroes-to-end-of-array0751/1
