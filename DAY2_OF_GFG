@@ -1,0 +1,84 @@
+1.COUNT ODD AND EVEN
+Given an array arr[] of positive integers. The task is to return the count of the number of odd and even elements in the array.
+SOURCE CODE : 
+        class Solution {
+            public int[] countOddEven(int[] arr) {
+                int even=0,odd=0;
+                for(int i=0;i<arr.length;i++){
+                    if(arr[i]%2==0){
+                        even++;
+                    }
+                    else{
+                        odd++;
+                    }
+                }
+                return new int[]{odd,even};
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/count-odd-even/1
+
+
+2.ARRAY INSERT AT INDEX
+You are given an array arr(0-based index) and two positive integer index and val. You need to insert an val at given index.
+SOURCE CODE : 
+        import java.util.*;
+
+        class Solution {
+            public void insertAtIndex(ArrayList<Integer> arr, int index, int val) {
+                arr.add(index,val);
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/array-insert-at-index/1
+
+
+3.NUMBER OF OCCURRENCE
+Given a sorted array, arr[] and a number target, you need to find the number of occurrences of target in arr[]. 
+SOURCE CODE : 
+        class Solution {
+            int countFreq(int[] arr, int target) {
+                // code here
+                int count=0;
+                for(int i=0;i<arr.length;i++){
+                    if(arr[i]==target){
+                        count++;
+                    }
+                }
+                return count;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/number-of-occurrence2259/1
+
+
+4.FIND ELEMENT AT A GIVEN INDEX
+Given an array arr[] of integers and an index i(0-based index). Return the element present at the index i in the array.
+SOURCE CODE : 
+        class Solution {
+            public int findElementAtIndex(int i, int[] arr) {
+                return arr[i];
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/c-array-print-an-element-set-25933/1
+
+
+5.ARRAY END INSERT
+Given an array arr that is not completely filled and a value val, you have to insert the value at the end of the array.
+SOURCE CODE : 
+        class Solution {
+            public void insertAtEnd(ArrayList<Integer> arr, int val) {
+                arr.add(arr.size(),val);
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/array-insert-at-end/1
+
+
+6.ARRAY TRAVERSAL
+You are given an array arr[] that contains integers. You need to print the elements of the array in a single line with a space between them.
+SOURCE CODE : 
+        class Solution {
+            public static void arrayTraversal(int[] arr) {
+                for(int i=0;i<arr.length;i++){
+                    System.out.print(arr[i]+" ");
+                }
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/array-traversal/1
