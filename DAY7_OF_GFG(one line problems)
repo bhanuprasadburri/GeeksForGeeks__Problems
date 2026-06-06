@@ -1,0 +1,102 @@
+1.START CODING
+The "Hello World" program is a common starting point for learning programming.
+SOURCE CODE : 
+        class GFG {
+            public static void main(String[] args) {
+                System.out.println("Hello World");
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/start-coding-1/1
+
+
+2.ARITHMETIC OPERATORS 
+Given two integer variables x and y. You need to perform the following operations:
+
+p = x + y, Addition
+q = x - y, Subtraction
+r = x * y, Multiplication
+s = x / y, Division
+t = x % y, Modulo
+SOURCE CODE : 
+        import java.util.Scanner;
+        class GFG {
+            public static void main(String[] args) {
+                Scanner sc = new Scanner(System.in);
+                int x = sc.nextInt();
+                int y = sc.nextInt();
+                System.out.println(p + " " + q + " " + r + " " + s + " " + t);
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/arithmetic-operators-1605594922/1
+
+
+3.CONVERT STRING TO LOWERCASE
+Given a string s. The task is to convert string characters to lowercase.
+SOURCE CODE : 
+        class Solution {
+            static String toLower(String s) {
+                return s.toLowerCase();
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/convert-string-to-lowercase/1
+
+
+4.PRINT WITH SPACE 
+Given two inputs that are store in variables a and b, you need to print a and b in a single line with a space separating them.
+Add new line after printing with space.
+SOURCE CODE : 
+        public class Solution {
+            public void utility(Scanner scn) {
+                String a=scn.nextLine();
+                String b=scn.nextLine();
+                System.out.println(a+" "+b);
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/print-with-space/1
+
+
+5.PRINT WITHOUT SPACE 
+Given two inputs that are stored in variables a and b, you need to print a and b in a single line without space between them.
+Note: Print a new line at the end after printing.
+SOURCE CODE : 
+        class Solution {
+            public void concatAndPrint(String a, String b) {
+                System.out.println(a+b);
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/print-without-space--124240/1
+
+
+6.EVEN POSITIONED CHARACTERS 
+You are given a String S, you need to print its characters at even indices(index starts at 0).
+SOURCE CODE :
+        class Solution {
+            public static void utility(String s) {
+                for(int i=0;i<s.length();i++,i++){
+                    System.out.print(s.charAt(i));
+                }
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/for-loop-2/1
+
+
+7.FUNCTION WITH RETURN 
+Given an integer n, You need to use the return keyword to return twice the value of n.
+SOURCE CODE : 
+        class Solution {
+            int returnValueFunction(int n) {
+                return 2*n;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
