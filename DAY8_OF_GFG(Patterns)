@@ -1,0 +1,185 @@
+1.PRINT SQUARE
+Given an integer n, write a program to print the square of size n using "*" character. 
+SOURCE CODE : 
+        import java.util.Scanner;
+        class GFG {
+            public static void main(String[] args) {
+                Scanner sc = new Scanner(System.in);
+                int n = sc.nextInt();
+                for(int i=1;i<=n;i++){
+                    for(int j=1;j<=n;j++){
+                        if(i==1 || j==1 || i==n || j==n){
+                            System.out.print("* ");
+                        }
+                        else{
+                            System.out.print("  ");
+                        }
+                    }
+                    System.out.println();
+                }
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/print-square--105330/1
+
+
+2.PRINT SOLID SQUARE 
+Given an integer n, print a solid square pattern of size n × n using "* " (a star followed by exactly one space).
+SOURCE CODE : 
+        import java.util.Scanner;
+        
+        class GFG {
+            public static void main(String[] args) {
+                Scanner sc = new Scanner(System.in);
+                int n = sc.nextInt();
+                for(int i=1;i<=n;i++){
+                    for(int j=1;j<=n;j++){
+                        System.out.print("* ");
+                    }
+                    System.out.println();
+                }
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/print-square-wall-1605682270/1
+
+
+3.RIGHT ANGLE TRIANGLE
+Given an integer s. Write a program to print the Right angle triangle wall. The length of perpendicular and base is s. 
+Note: Print exactly single " " after "*". Print a new line after printing the triangle.
+SOURCE CODE : 
+        class Solution {
+            public static void triangleWall(int s) {
+                for(int i=1;i<=s;i++){
+                    for(int j=1;j<=i;j++){
+                        System.out.print("* ");
+                    }
+                    System.out.println();
+                }
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/right-angle-triangle-1605685807/1
+
+
+4.RIGHT ANGLE TRIANGLE 2
+Given an integer n. Write a program to print the Right angle triangle. The length of the perpendicular and base is n.  
+SOURCE CODE : 
+        class Solution {
+            public void printPattern(int n) {
+                for(int i=1;i<=n;i++){
+                    for(int j=1;j<=i;j++){
+                        if(i==1 || j==1 || i==n || j==i){
+                            System.out.print("* ");
+                        }
+                        else{
+                            System.out.print("  ");
+                        }
+                    }
+                    System.out.println();
+                }
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/right-angle-triangle-2-1605689820--102106/1
+
+
+5.INVERTED RIGHT ANGLE TRIANGLE
+Given an integer n. Write a program to print the inverted "Right angle triangle" wall. 
+The length of the perpendicular and base is n.
+SOURCE CODE :
+        class Solution {
+            public void printPattern(int n) {
+                for(int i=n;i>=1;i--){
+                    for(int j=i;j>=1;j--){
+                        System.out.print("* ");
+                    }
+                    System.out.println();
+                }
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/inverted-right-angletriangle-1605691171--104349/1
+
+
+6.RIGHT-ANGLED NUMBER TRIANGLE
+Given a number n. The task is to print Right-Angled Number Triangle with n lines.
+SOURCE CODE : 
+        class Solution {
+            public void printRightTriangle(int n) {
+                for(int i=1;i<=n;i++){
+                    for(int j=1;j<=i;j++){
+                        System.out.print(j+" ");
+                    }
+                    System.out.println();
+                }
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/right-angled-number-triangle/1
+
+
+7.FLOYD'S TRIANGLE
+Given a number n, print Floyd's triangle with n lines.
+Floyd’s Triangle is a pattern of consecutive natural numbers arranged in rows, where the i-th row contains i numbers.
+SOURCE CODE : 
+        import java.util.Scanner;
+        class GFG {
+            public static void main(String[] args) {
+                Scanner sc = new Scanner(System.in);
+                int n = sc.nextInt();
+                int num=1;
+                for(int i=1;i<=n;i++){
+                    for(int j=1;j<=i;j++){
+                        System.out.print(num+" ");
+                        num++;
+                    }
+                    System.out.println();
+                }
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/floyds-triangle1222/1
+
+
+8.PYRAMID PATTERN 
+Given a number n, print pyramid pattern with n lines.
+SOURCE CODE : 
+        class Solution {
+            void printPyramid(int n) {
+                for(int i=1;i<=n;i++){
+                    for(int j=1;j<=n-i;j++){
+                        System.out.print(" ");
+                    }
+                    for(int j=1;j<=2*i-1;j++){
+                        System.out.print("*");
+                    }
+                    System.out.println();
+                }
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/pyramid-patterns/1
+
+
+9.DIAMOND PATTERN 
+Geek is very fond of patterns. Once, his teacher gave him a star pattern to solve. 
+He gave Geek an integer n and asked him to build a pattern.
+Help Geek to build a star pattern.
+SOURCE CODE : 
+        class Solution {
+            public void printDiamond(int n) {
+                for(int i=1;i<=n;i++){
+                    for(int j=1;j<=n-i;j++){
+                        System.out.print(" ");
+                    }
+                    for(int j=1;j<=i;j++){
+                        System.out.print("* ");
+                    }
+                    System.out.println();
+                }
+                for(int i=n;i>=1;i--){
+                    for(int j=n-i;j>=1;j--){
+                        System.out.print(" ");
+                    }
+                    for(int j=1;j<=i;j++){
+                        System.out.print("* ");
+                    }
+                    System.out.println();
+                }
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/pattern/1
+
