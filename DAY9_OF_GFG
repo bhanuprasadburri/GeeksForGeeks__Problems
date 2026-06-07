@@ -1,0 +1,172 @@
+1.GREATEST OF THREE NUMBERS
+Given three numbers a, b and c. Find the greatest number among them.
+SOURCE CODE : 
+        import java.util.Scanner;
+        class GFG {
+            public static void main(String[] args) {
+                Scanner sc = new Scanner(System.in);
+                int a = sc.nextInt();
+                int b = sc.nextInt();
+                int c = sc.nextInt();
+                if(a>b && a>c){
+                    System.out.println(a);
+                }
+                else if(b>c){
+                    System.out.println(b);
+                }
+                else{
+                    System.out.println(c);
+                }
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/greatest-of-three-numbers2520/1
+
+
+2.RIGHT ANGLED TRIANGLES 
+Given three integers a, b and c. The task is to check if it is possible to make right angled triangle with sides of length a, b and c.
+SOURCE CODE : 
+        class Solution {
+            static String rightAngTri(long a, long b, long c) {
+                if(a*a+b*b==c*c){
+                    return "Yes";
+                }
+                return "No";
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/right-angled-triangles4729/1
+
+
+3.SECOND LARGEST 
+Given an array of positive integers arr[], return the second largest element from the array. 
+If the second largest element doesn't exist then return -1.
+Note: The second largest element should not be equal to the largest element.
+SOURCE CODE : 
+        class Solution {
+            public int getSecondLargest(int[] arr) {
+                int first=-1;
+                int second=-1;
+                for(int num:arr){
+                    if(num>first){
+                        second=first;
+                        first=num;
+                    }
+                    else if(num!=first && num>second){
+                        second=num;
+                    }
+                }
+                if(second!=-1){
+                    return second;
+                }
+                return -1;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/second-largest3735/1
+
+
+4.FIND THE LEFT OVER ELEMENT 
+Given an array arr[], the size is reduced by 1 element at each step. In the first step, the maximum element would be removed,
+while in the second step, the minimum element of the remaining array would be removed, in the third step again the maximum, 
+and so on. Continue this till the array contains only one element. And find the final element remaining in the array.
+SOURCE CODE : 
+        class Solution {
+            public static int leftElement(int[] arr) {
+                Arrays.sort(arr);
+                int n=arr.length;
+                if(n==1){
+                    return arr[0];
+                }
+                if(n%2==0){
+                    return arr[(n/2)-1];   
+                }
+                else{
+                    return arr[(n/2)-1/2];
+                }
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/print-the-left-element2009/1
+
+
+5.FIRST AND LAST IN UNSORTED
+Given an unsorted array arr[] of integers and a key which is present in this array. 
+Find the start index (index where the element is first found from left in the array) and end index (index where the element is first found from right in the array). 
+Return an array of length 2 with elements start index and end index.
+Note: If the key does not exist in the array then return -1 for both start and end index.
+SOURCE CODE : 
+        class Solution {
+            public ArrayList<Integer> findIndex(int[] arr, int key) {
+                int first=-1;
+                int last=-1;
+                ArrayList<Integer> list=new ArrayList<>();
+                for(int i=0;i<arr.length;i++){
+                    if(arr[i]==key){
+                        if(first==-1){
+                            first=i;
+                        }
+                        last=i;
+                    }
+                }
+                list.add(first);
+                list.add(last);
+                return list;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/find-index4752/1
+
+
+6.LEAP YEAR 
+You are given an Integer n. Return true if It is a Leap Year otherwise return false.
+SOURCE CODE : 
+        class Solution {
+            static boolean isLeap(int N) {
+                return N%4==0 && N%100!=0 || N%400==0;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/leap-year0943/1
+
+
+7.FACTORIAL 
+Given a positive integer, n. Find the factorial of n.
+SOURCE CODE : 
+        class Solution {
+            int factorial(int n) {
+                if(n==0 || n==1){
+                    return 1;
+                }
+                else{
+                    return n*factorial(n-1);
+                }
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/factorial5739/1
+
+
+8.TABLE DIFFERENCE 
+Given two number n1 and n2, n1 > n2. Find the differences between mathematical tables of n1 and n2 and print in a single line.
+Note: Don't add a new line in the end.
+SOURCE CODE : 
+        class Solution {
+            public static void difference(int n1, int n2) {
+                for(int i=1;i<=10;i++){
+                    System.out.print((n1*i)-(n2*i)+" ");
+                }
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/table-difference/1
+
+
+9.CHECK IF ARRAY IS SORTED 
+Given an array arr[], check whether it is sorted in non-decreasing order. Return true if it is sorted otherwise false.
+SOURCE CODE : 
+        class Solution {
+            public boolean isSorted(int[] arr) {
+                for(int i=1;i<arr.length;i++){
+                    if(arr[i]<arr[i-1]){
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/check-if-an-array-is-sorted0701/1
+
+
