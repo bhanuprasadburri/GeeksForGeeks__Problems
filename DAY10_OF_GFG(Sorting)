@@ -1,0 +1,290 @@
+1.WHO HAS THE MAJORITY?
+Given an array arr[] and two elements x and y, return the element that occurs more frequently. 
+If both elements have the same frequency, return the smaller one.
+SOURCE CODE : 
+        class Solution {
+            public int moreFrequent(List<Integer> arr, int x, int y) {
+                int xcount=0;
+                int ycount=0;
+                for(int i=0;i<arr.size();i++){
+                    if(arr.get(i)==x){
+                        xcount++;
+                    }
+                    if(arr.get(i)==y){
+                        ycount++;
+                    }
+                }
+                if(xcount==ycount){
+                    return Math.min(x,y);
+                }
+                return (xcount>ycount)?x:y;        
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/who-has-the-majority/1
+
+
+2.INSERTION SORT 
+Given an array arr[] of positive integers.The task is to complete the insertsort() function which is used to implement Insertion Sort.
+SOURCE CODE : 
+        class Solution {
+            public void insertionSort(int arr[]) {
+                for(int i=0;i<arr.length;i++){
+                    int j=i;
+                    while(j>0 && arr[j-1]>arr[j]){
+                        int temp=arr[j-1];
+                        arr[j-1]=arr[j];
+                        arr[j]=temp;
+                        j--;
+                    }
+                }
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/insertion-sort/1?page=1&category%5B%5D=Algorithms&query=category%5B%5DAlgorithmspage1
+
+
+3.SELECTION SORT 
+Given an array arr, use selection sort to sort arr[] in increasing order.
+SOURCE CODE : 
+        class Solution {
+            void selectionSort(int[] arr) {
+                int n=arr.length;
+                for(int i=0;i<n;i++){
+                    int min=i;
+                    for(int j=i;j<n;j++){
+                        if(arr[j]<arr[min]){
+                            min=j;
+                        }
+                    }
+                    int temp=arr[min];
+                    arr[min]=arr[i];
+                    arr[i]=temp; 
+                }
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/selection-sort/1
+
+
+4.BUBBLE SORT 
+Given an array, arr[]. Sort the array using bubble sort algorithm.
+SOURCE CODE : 
+        class Solution {
+            public void bubbleSort(int[] arr) {
+                for(int i=0;i<arr.length-1;i++){
+                    for(int j=0;j<arr.length-1-i;j++){
+                        if(arr[j]>arr[j+1]){
+                            int temp=arr[j];
+                            arr[j]=arr[j+1];
+                            arr[j+1]=temp;
+                        }
+                    }
+                }
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/bubble-sort/1
+
+
+5.MAX VALUE PERMUTATION 
+Given an array arr[] of integers, rearrange its elements in any order to maximize the value of: 
+Σ(arr[i] × i), where 0 ≤ i < n
+Return the maximum possible value .
+SOURCE CODE : 
+        class Solution {
+            int maxValue(int arr[]) {
+                Arrays.sort(arr);
+                int max=0;
+                for(int i=0;i<arr.length;i++){
+                    max+=(arr[i]*i);
+                }
+                return max;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/maximize-arrii-of-an-array0026/1
+
+
+6.MAX PRODUCT PAIR 
+Given an array arr[] of non-negative integers, find the maximum product of any two elements present in the array.
+SOURCE CODE : 
+        class Solution {
+            public static int maxProduct(int[] arr) {
+                Arrays.sort(arr);
+                int n=arr.length;
+                return arr[n-1]*arr[n-2];
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/maximum-product-of-two-numbers2730/1
+
+
+7.TWO ARRAYS WITH SAME ELEMENTS 
+Check whether given two arrays a[] and b[] are identical or not. Two arrays are called identical arrays 
+if they contain the same element with the same count, regardless of the order of elements.
+SOURCE CODE : 
+        class Solution {
+            public boolean isIdentical(int[] a, int[] b) {
+                Arrays.sort(a);
+                Arrays.sort(b);
+                for(int i=0;i<a.length;i++){
+                    if(a[i]!=b[i]){
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/the-problem-of-identical-arrays3229/1
+
+
+8.SUM OF ALTERNATE PRODUCTS 
+Given an array arr[] of even size consisting of positive integers. After sorting the array, 
+find the sum of the product of i-th element from starting and i-th element from last.
+SOURCE CODE : 
+        class Solution {
+            public int altProduct(int[] arr) {
+                Arrays.sort(arr);
+                int n=arr.length;
+                int j=n-1;
+                int sum=0;
+                for(int i=0;i<n/2;i++){
+                    sum+=(arr[i]*arr[j]);
+                    j--;
+                }
+                return sum;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/minimize-sum-of-alternate-product2033/1
+
+
+9.FRIENDLY ARRAY
+Numbers have a measure of friendliness defined as the absolute difference between them. 
+Given an circular array of integers arr[], calculate the friendliness of the array. 
+Friendliness is the sum of the absolute differences between each element and its closest friend in the array.
+SOURCE CODE : 
+        class Solution {
+            public int calculateFriendliness(int[] arr) {
+                int sum=0;
+                for(int i=1;i<arr.length;i++){
+                    sum+=Math.abs(arr[i]-arr[i-1]);
+                }
+                sum+=Math.abs(arr[arr.length-1]-arr[0]);
+                return sum;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/friendly-array2009/1
+
+
+10.SORT ARRAY II
+Given an unsorted array arr[] of numbers, sort the array in ascending order.
+SOURCE CODE : 
+        class Solution {
+            void sortArr(int[] arr) {
+                Arrays.sort(arr);
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/sort-the-array0055/1
+
+
+11.CHECK EQUAL ARRAYS 
+Given two arrays a[] and b[] of equal size, the task is to find whether the elements in the arrays are equal.
+Two arrays are said to be equal if both contain the same set of elements, arrangements (or permutations) of elements may be different though.
+SOURCE CODE : 
+        class Solution {
+            public static boolean checkEqual(int[] a, int[] b) {
+                Arrays.sort(a);
+                Arrays.sort(b);
+                for(int i=0;i<a.length && i<b.length;i++){
+                    if(a[i]!=b[i]){
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/check-if-two-arrays-are-equal-or-not3847/1
+
+
+12.FLOOR AND CEIL IN UNSORTED 
+Given an unsorted array arr[] of integers and an integer x, find the floor and ceiling of x in arr[].
+   -> Floor of x is the largest element which is smaller than or equal to x. Floor of x doesn’t exist if x is smaller than smallest element of arr[].
+   -> Ceil of x is the smallest element which is greater than or equal to x. Ceil of x doesn’t exist if x is greater than greatest element of arr[].
+Return an array of integers denoting the [floor, ceil]. Return -1 for floor or ceiling if the floor or ceiling is not present.
+SOURCE CODE : 
+class Solution {
+    public int[] getFloorAndCeil(int x, int[] arr) {
+        int floor=-1;
+        int ceil=-1;
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]<=x){
+                if(floor==-1 || arr[i]>floor){
+                    floor=arr[i];
+                }
+            }
+            if(arr[i]>=x){
+                if(ceil==-1 || arr[i]<ceil){
+                    ceil=arr[i];
+                }
+            }
+        }
+        return new int[]{floor,ceil};
+    }
+}
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/ceil-the-floor2802/1
+
+
+13.CEIL IN A SORTED ARRAY 
+Given a sorted array arr[] and an integer x, find the index (0-based) of the smallest element in arr[] that is greater than or equal to x. 
+This element is called the ceil of x. If such an element does not exist, return -1.
+SOURCE CODE : 
+        class Solution {
+            public int findCeil(int[] arr, int x) {
+                int ceil=-1;
+                for(int i=arr.length-1;i>-1;i--){
+                    if(arr[i]>=x){
+                        ceil=i;
+                    }
+                }
+                return ceil;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/ceil-in-a-sorted-array/1
+
+
+14.FLOOR IN A SORTED ARRAY 
+Given a sorted array arr[] and an integer x, find the index (0-based) of the largest element in arr[] that is less than or equal to x. 
+This element is called the floor of x. If such an element does not exist, return -1.
+SOURCE CODE : 
+        class Solution {
+            public int findFloor(int[] arr, int x) {
+                int floor=-1;
+                for(int i=0;i<arr.length;i++){
+                    if(arr[i]<=x){
+                        floor=i;
+                    }
+                }
+                return floor;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/floor-in-a-sorted-array-1587115620/1
+
+
+15.FIRST AND LAST IN SORTED 
+Given a sorted array arr[] with possibly some duplicates, find the first and last occurrences of an element x in the given array.
+SOURCE CODE :
+        class Solution {
+            ArrayList<Integer> find(int arr[], int x) {
+                int first=-1;
+                int last=-1;
+                ArrayList<Integer> list=new ArrayList<>();
+                for(int i=0;i<arr.length;i++){
+                    if(arr[i]==x){
+                        if(first==-1){
+                            first=i;   
+                        }
+                        last=i;
+                    }
+                }
+                list.add(first);
+                list.add(last);
+                return list;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/first-and-last-occurrences-of-x3116/1
+
