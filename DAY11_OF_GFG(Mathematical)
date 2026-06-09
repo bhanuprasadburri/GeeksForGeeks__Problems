@@ -1,0 +1,386 @@
+1.REMOVE DUPLICATES SORTED ARRAY 
+You are given a sorted array arr[] containing positive integers. Your task is to remove all duplicate elements from this array such that each element appears only once. 
+Return an array containing these distinct elements in the same order as they appeared.
+SOURCE CODE : 
+        class Solution {
+            ArrayList<Integer> removeDuplicates(int[] arr) {
+                ArrayList<Integer> list=new ArrayList<>();
+                if(arr.length==0){
+                    return list;
+                }
+                list.add(arr[0]);
+                for(int i=1;i<arr.length;i++){
+                    if(arr[i]!=arr[i-1]){
+                        list.add(arr[i]);
+                    }
+                }
+                return list;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/remove-duplicate-elements-from-sorted-array/1
+
+
+2.SQUARE ROOT 
+Given a positive integer n, find the square root of n. If n is not a perfect square, then return the floor value.
+Floor value of any number is the greatest Integer which is less than or equal to that number.
+SOURCE CODE : 
+        class Solution {
+            int floorSqrt(int n) {
+                return (int)Math.sqrt(n);
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/square-root/1
+
+
+3.FIRST REPEATING ELEMENT 
+Given an array arr[], find the first repeating element index. 
+The element should occur more than once and the index of its first occurrence should be the smallest.
+Note:- The position you return should be according to 1-based indexing. 
+SOURCE CODE : 
+        class Solution {
+            public static int firstRepeated(int[] arr) {
+                for(int i=0;i<arr.length;i++){
+                    int repeat=0;
+                    for(int j=0;j<arr.length;j++){
+                        if(arr[i]==arr[j]){
+                            repeat++;
+                        }
+                        if(repeat>1){
+                            return i+1;
+                        }
+                    }
+                }
+                return -1;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/first-repeating-element4018/1
+
+
+4.PRODUCT ARRAY PUZZLE
+Given an array, arr[] construct a product array, res[] where each element in res[i] is the product of all elements in arr[] except arr[i]. Return this resultant array, res[].
+Note: Each element is res[] lies inside the 32-bit integer range.
+SOURCE CODE : 
+        class Solution {
+            public static int[] productExceptSelf(int arr[]) {
+                int res[]=new int[arr.length];
+                res[0]=1;
+                for(int i=1;i<arr.length;i++){
+                    res[i]=res[i-1]*arr[i-1];
+                }
+                int prev=1;
+                for(int i=arr.length-1;i>=0;i--){
+                    res[i]*=prev;
+                    prev*=arr[i];
+                }
+                return res;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/product-array-puzzle4525/1
+
+
+5.FIND TRANSITION POINT 
+Given a sorted array, arr[] containing only 0s and 1s, find the transition point, i.e., the first index where 1 was observed, 
+and before that, only 0 was observed.  If arr does not have any 1, return -1. If array does not have any 0, return 0.
+SOURCE CODE : 
+        class Solution {
+            int transitionPoint(int arr[]) {
+                if(arr[0]!=0){
+                    return 0;
+                }
+                if(arr[arr.length-1]!=1){
+                    return -1;
+                }
+                int transition=0;
+                for(int i=0;i<arr.length;i++){
+                    if(arr[i]==1){
+                        transition=i;
+                        break;
+                    }
+                }
+                return transition;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/find-transition-point-1587115620/1
+
+
+6.SEGREGATE 0s AND 1s 
+Given an array arr[] consisting of only 0's and 1's. Modify the array in-place to segregate 0s onto the left side and 1s onto the right side of the array.
+SOURCE CODE : 
+        class Solution {
+            void segregate0and1(int[] arr) {
+                int j=0;
+                for(int i=0;i<arr.length;i++){
+                    if(arr[i]==0){
+                        int temp=arr[i];
+                        arr[i]=arr[j];
+                        arr[j]=temp;
+                        j++;
+                    }
+                }
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/segregate-0s-and-1s5106/1
+
+
+7.PRODUCT OF AN ARRAY 
+Given an array, arr[] of positive integers. Your task is to return the product of array elements under the given modulo, 
+mod with the value of 1000000007.
+Note: The modulo operation finds the remainder after the division of one number by another. 
+For example, k(mod(m))=k%m= remainder obtained when k is divided by m
+SOURCE CODE : 
+        class Solution {
+            public static long product(long arr[]) {
+                long product=1;
+                long mod=1000000007;
+                for(int i=0;i<arr.length;i++){
+                    product=(product*arr[i])%mod;
+                }
+                return product;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/product-of-array-element/1
+
+
+8.SUM OF NATURAL NUMBERS 
+Given an integer n, compute the sum of all natural numbers from 1 to n (inclusive). If n is 0, the sum should be 0.
+SOURCE CODE : 
+        import java.util.Scanner;
+        class GFG {
+            public static void main(String[] args) {
+                Scanner sc = new Scanner(System.in);
+                int n = sc.nextInt();
+                int sum=0;
+                for(int i=1;i<=n;i++){
+                    sum+=i;
+                }
+                System.out.println(sum);
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/reverse-coding2452/1
+
+
+9.Nth FIBONACCI NUMBER 
+Find the n-th Fibonacci number for a given non-negative integer n.
+The Fibonacci sequence is defined as:
+F(0) = 0
+F(1) = 1
+F(n) = F(n - 1) + F(n - 2) for n ≥ 2
+SOURCE CODE : 
+        class Solution {
+            public int nthFibonacci(int n) {
+                if(n==0){
+                    return 0;
+                }
+                else if(n==1){
+                    return 1;
+                }
+                else{
+                    return nthFibonacci(n-1)+nthFibonacci(n-2);
+                }
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/nth-fibonacci-number1335/1
+
+
+10.ARMSTRONG NUMBER 
+You are given a 3-digit number n, Find whether it is an Armstrong number or not.
+An Armstrong number of three digits is a number such that the sum of the cubes of its digits is equal to the number itself. 
+371 is an Armstrong number since 33 + 73 + 13 = 371. 
+SOURCE CODE : 
+        class Solution {
+            static boolean armstrongNumber(int n) {
+                int sum=0;
+                int temp=n;
+                while(temp!=0){
+                    int rem=temp%10;
+                    sum+=(rem*rem*rem);
+                    temp/=10;
+                }
+                return sum==n;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/armstrong-numbers2727/1
+
+
+11.SUM 1 TO N DIVISORS 
+Given a positive integer n, The task is to find the value of Σi F(i) where i is from 1 to n and 
+function F(i) is defined as the sum of all divisors of i.
+SOURCE CODE : 
+        class Solution {
+            public static long sumOfDivisors(long n) {
+                long sum=0;
+                for(int i=1;i<=n;i++){
+                    sum+=i*(n/i);
+                }
+                return sum;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/sum-of-all-divisors-from-1-to-n4738/1
+
+
+12.TRIBONACCI NUMBER 
+You are given a number n. Your task is to find n-th Tribonacci Number Tn.
+Tribonacci Number:  T0 = 0, T1 = 1, T2 = 1, and Tn+3 = Tn + Tn+1 + Tn+2 for n >= 0.
+SOURCE CODE : 
+        class Solution {
+            public static int nthTribonacci(int n) {
+                if(n==0){
+                    return 0;
+                }
+                if(n==1 || n==2){
+                    return 1;
+                }
+                int t0=0,t1=1,t2=1;
+                for(int i=3;i<=n;i++){
+                    int t3=t0+t1+t2;
+                    t0=t1;
+                    t1=t2;
+                    t2=t3;
+                }
+                return t2;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/tribonacci-number/1
+
+
+13.VALID TRIANGLE 
+Given the three sides of a triangle a, b, and c. Check whether the triangle is valid or not.
+SOURCE CODE : 
+        class Solution {
+            public boolean checkValidity(int a, int b, int c) {
+                return a+b>c && b+c>a && c+a>b;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/valid-triangle--121441/1
+
+
+14.NUMBER OF DIVISORS IN A GIVEN RANGE 
+Given a range [m..n]. You task is to find the number of integers divisible by either a or b in the given range.
+SOURCE CODE : 
+        class Solution {
+            static int numOfDiv(int m, int n, int a, int b) {
+                int count=0;
+                for(int i=m;i<=n;i++){
+                    if(i%a==0 || i%b==0){
+                        count++;
+                    }
+                }
+                return count;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/number-of-divisors-in-a-given-range3738/1
+
+
+15.EVEN ODD GAME 
+Given a number n, number of apples in a bag. You and your friend are picking one apple turnwise from the bag. 
+It is given that the first attempt is always by you. The person picking the last apple will be the winner. 
+    ->If you will win: print "You" (without quotes)
+    ->If your friend will win: print "Friend" (without quotes)
+SOURCE CODE : 
+        import java.util.Scanner;
+        class GFG {
+            public static void main(String[] args) {
+                Scanner sc = new Scanner(System.in);
+                int n = sc.nextInt();
+                if(n%2!=0){
+                    System.out.println("You");
+                }
+                else{
+                    System.out.println("Friend");
+                }
+        
+                sc.close();
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/even-odd-game--153136/1
+
+
+16.CALCULATOR
+Given two numbers a and b. You need to perform basic mathematical operations on them. You will be provided an integer named as operator.
+    ->If the operator equals to 1 add a and b, then print the result.
+    ->If the operator equals to 2 subtract b from a, then print the result.
+    ->If the operator equals to 3 multiply a and b, then print the result.
+    ->If the operator equals to any other number, print "Invalid Input"(without quotes).
+SOURCE CODE : 
+        class Solution {
+            public void calculate(int a, int b, int operator) {
+                switch(operator){
+                    case 1:
+                        System.out.print(a+b);
+                        break;
+                    case 2:
+                        System.out.print(b-a);
+                        break;
+                    case 3:
+                        System.out.print(a*b);
+                        break;
+                    default:
+                        System.out.print("Invalid Input");
+                        break;
+                }
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/calculator--172632/1
+
+
+17.DIGITS IN FACTORIAL 
+Given an integer n, find the number of digits in the value of n factorial. 
+SOURCE CODE : 
+        class Solution {
+            public int digitsInFactorial(int n) {
+                if(n==0 || n==1){
+                    return 1;
+                }
+                double fact=0;
+                for(int i=1;i<=n;i++){
+                    fact+=Math.log10(i);
+                }
+                return (int) fact+1;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/digits-in-factorial/1
+
+
+18.JAVA ARRAYS 
+Given an array arr[] containing the prices of items, your task is to calculate the average of all prices, 
+rounded to two decimal places. Return the average of all the items as a String.
+SOURCE CODE : 
+        class Solution {
+            public String average(int arr[]) {
+                double sum=0;
+                int n=arr.length;
+                for(int i=0;i<n;i++){
+                    sum+=arr[i];
+                }
+                double avg=sum/n;
+                return String.format("%.2f",avg);
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/java-arrays-set-11354/1
+
+
+19.SUM OF ALL PRIME NUMBERS BETWEEN 1 AND N
+Given a positive integer n, compute and return the sum of all prime numbers between 1 and n (inclusive).
+A prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself.  
+SOURCE CODE : 
+        class Solution {
+            public int prime_Sum(int n) {
+                int sum=0;
+                for(int i=2;i<=n;i++){
+                    int count=0;
+                    for(int j=2;j<=Math.sqrt(i);j++){
+                        if(i%j==0){
+                            count++;
+                            break;
+                        }
+                    }
+                    if(count==0){
+                        sum+=i;
+                    }
+                }
+                return sum;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/sum-of-all-prime-numbers-between-1-and-n4404/1
+
+
