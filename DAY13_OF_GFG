@@ -1,0 +1,132 @@
+1.TWO SUM IN SORTED ARRAY
+You are given a 1-based indexed integer array arr[] that is sorted in non-decreasing order, along with an integer target. 
+Your task is to find two elements in the array such that their sum is equal to target. If such a pair exists, 
+return the indices of the two elements in increasing order. If no such pair exists, return [-1, -1].
+Note: If your answer is correct then the driver code will print "true" otherwise "false".
+SOURCE CODE : 
+        class Solution {
+            public ArrayList<Integer> twoSum(int[] arr, int target) {
+                Arrays.sort(arr);
+                ArrayList<Integer> list=new ArrayList<>();
+                int n=arr.length;
+                int start=0;
+                int end=n-1;
+                while(start<end){
+                    if(arr[start]+arr[end]==target){
+                        list.add(start+1);
+                        list.add(end+1);
+                        return list;
+                    }
+                    else if(arr[start]+arr[end]>target){
+                        end--;
+                    }
+                    else{
+                        start++;
+                    }
+                }
+                list.add(-1);
+                list.add(-1);
+                return list;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/two-sum-in-sorted-array/1
+
+
+2.COUNT DIGITS IN A NUMBER 
+Given a number n, return the count of digits in this number.
+SOURCE CODE : 
+        class Solution {
+            public static int countDigits(int n) {
+                int count=0;
+                while(n>0){
+                    int rem=n%10;
+                    count++;
+                    n/=10;
+                }
+                return count;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/count-total-digits-in-a-number/1
+
+
+3.THIRD LARGEST 
+Given an array, arr[] of positive integers. Find the third largest element in it. Return -1 if the third largest element is not found.
+SOURCE CODE : 
+        class Solution {
+            public int thirdLargest(List<Integer> arr) {
+                int n=arr.size();
+                if(n<3){
+                    return -1;
+                }
+                Collections.sort(arr);
+                return arr.get(n-3);
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/third-largest-element/1
+
+
+4.COUNT PAIRS WHOSE SUM IS LESS THAN TARGET 
+Given an array arr[] and an integer target. You have to find the number of pairs in the array whose sum is strictly less than the target.
+SOURCE CODE : 
+        class Solution {
+            int countPairs(int arr[], int target) {
+                Arrays.sort(arr);
+                int n=arr.length;
+                int start=0;
+                int end=n-1;
+                int count=0;
+                while(start<end){
+                    int sum=arr[start]+arr[end];
+                    if(sum<target){
+                        count+=(end-start);
+                        start++;
+                    }
+                    else{
+                        end--;
+                    }
+                }
+                return count;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/count-pairs-whose-sum-is-less-than-target/1
+
+
+5.DATA TYPES-JAVA
+Working with Data Types is very important in the programming world. Here, we will learn to manipulate the basic data types in Java. 
+You will be given four different variables of different data types: a (int), b (float), c (double), l (long), d (byte). 
+Your task is to do step-wise operations as given below:
+1. Divide c by b.
+2. Divide b by a.
+3. Divide c by a.
+4. Add the result at step 3 with l.
+5. Divide a by d.
+SOURCE CODE : 
+        class Geeks {
+            // Function to do operations with different data types
+            static void dataTypes(int a, float b, double c, long l, byte d) {
+                double p = c/b; // c/b
+                double q = b/a; // b/a
+                double r = c/a; // c/a
+                double m = r+l; // r+l
+                int s = a/d;    // a/d
+                // Printing all the results
+                System.out.println(p + " " + q + " " + r + " " + m + " " + s);
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/data-types-java/1
+
+
+6.AP TERM 
+SOURCE CODE : 
+        import java.util.Scanner;
+        class GFG {
+            public static void main(String[] args) {
+                Scanner sc = new Scanner(System.in);
+                int a = sc.nextInt();
+                int d = sc.nextInt();
+                int n = sc.nextInt();
+                int nth=a+(n-1)*d;
+                System.out.println(nth);
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/ap-term--150919/1
