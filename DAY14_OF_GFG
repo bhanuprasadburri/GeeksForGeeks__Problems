@@ -1,0 +1,121 @@
+1.KADANE'S ALGORITHM
+You are given an integer array arr[]. You need to find the maximum sum of a subarray (containing at least one element) in the array arr[].
+Note : A subarray is a continuous part of an array.
+SOURCE CODE : 
+        class Solution {
+            int maxSubarraySum(int[] arr) {
+                int n=arr.length;
+                int sum=arr[0];
+                int maxSum=arr[0];
+                for(int i=1;i<n;i++){
+                    sum=Math.max(arr[i],sum+arr[i]);
+                    maxSum=Math.max(maxSum,sum);
+                }
+                return maxSum;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/kadanes-algorithm-1587115620/1
+
+
+2.SMALLEST POSITIVE MISSING 
+You are given an integer array arr[]. Your task is to find the smallest positive number missing from the array.
+Note: Positive number starts from 1. The array can have negative integers too.
+SOURCE CODE : 
+        class Solution {
+            public int missingNumber(int[] arr) {
+                HashSet<Integer> set=new HashSet<>();
+                for(int num:arr){
+                    if(num>0){
+                        set.add(num);
+                    }
+                }
+                int smallest=1;
+                while(set.contains(smallest)){
+                    smallest++;
+                }
+                return smallest;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/smallest-positive-missing-number-1587115621/1
+
+
+3.K-TH ELEMENT OF TWO ARRAYS
+Given two sorted arrays a[] and b[] and an element k, the task is to find the element that would be at the kth position of the combined sorted array.
+SOURCE CODE : 
+        class Solution {
+            public int kthElement(int a[], int b[], int k) {
+                int n1=a.length;
+                int n2=b.length;
+                int res[]=new int[n1+n2];
+                for(int i=0;i<n1;i++){
+                    res[i]=a[i];
+                }
+                for(int i=0;i<n2;i++){
+                    res[n1+i]=b[i];
+                }
+                Arrays.sort(res);
+                return res[k-1];
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/k-th-element-of-two-sorted-array1317/1
+
+
+4.MAXIMUM INDEX 
+Given an array arr of positive integers. You have to return the maximum of j - i such that arr[i] < arr[j] and i < j.
+SOURC CODE : 
+        class Solution {
+            int maxIndexDiff(int[] arr) {
+                int n=arr.length;
+                int leftMin[]=new int[n];
+                int rightMax[]=new int[n];
+                leftMin[0]=arr[0];
+                for(int i=1;i<n;i++){
+                    leftMin[i]=Math.min(leftMin[i-1],arr[i]);
+                }
+                rightMax[n-1]=arr[n-1];
+                for(int i=n-2;i>=0;i--){
+                    rightMax[i]=Math.max(rightMax[i+1],arr[i]);
+                }
+                int i=0,j=0,maxDiff=0;
+                while(i<n && j<n){
+                    if(leftMin[i]<=rightMax[j]){
+                        maxDiff=Math.max(maxDiff,j-i);
+                        j++;
+                    }
+                    else{
+                        i++;
+                    }
+                }
+                return maxDiff;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/maximum-index-1587115620/1
+
+
+5.BITWISE OPERATRS 
+Given three positive integers a, b and c. Your task is to perform some bitwise operations on them as given below:
+1. d = a ^ a
+2. e = c ^ b
+3. f = a & b
+4. g = c | (a ^ a)
+5. e = ~ e
+Note: ^ is for xor.
+Then print d e f g space seperately. Move the cursor to the next line after printing.
+SOURCE CODE : 
+        import java.util.Scanner;
+        public class Solution {
+            public static void solve() {
+                Scanner scn = new Scanner(System.in);
+                int a = scn.nextInt();
+                int b = scn.nextInt();
+                int c = scn.nextInt();
+                int d=a^a;
+                int e=c^b;
+                int f=a&b;
+                int g=c|(a^a);
+                e=~e;
+                System.out.print(d+" "+e+" "+f+" "+g);
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/bitwise-operators-1597314674--135255/1
+
