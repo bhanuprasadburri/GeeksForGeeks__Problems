@@ -1,0 +1,101 @@
+1.ODD OR EVEN
+Given a positive integer n, determine whether it is odd or even. Return true if the number is even and false if the number is odd.
+SOURCE CODE : 
+        class Solution {
+            static boolean isEven(int n) {
+                return n%2==0;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/odd-or-even3618/1
+
+
+2.POWER OF 2
+Given a non-negative integer n, return true if it is a power of 2. Otherwise, return false.  
+SOURCE CODE : 
+        class Solution {
+            public static boolean isPowerofTwo(int n) {
+                return n>0 && (n&(n-1))==0;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/power-of-2-1587115620/1
+
+
+3.FIND THE CLOSEST NUMBER 
+Given a sorted array arr[] of positive integers. The task is to find the closest value in the array to the given number k. 
+The array may contain duplicate values.
+Note: If the difference with k is the same for two values in the array return the greater value.
+SOURCE CODE : 
+        class Solution {
+            public static int findClosest(int[] arr, int k) {
+                // code here
+                int n=arr.length;
+                int low=0;
+                int high=arr.length-1;
+                while(low<=high){
+                    int mid=(low+high)/2;
+                    if(arr[mid]==k){
+                        return arr[mid];
+                    }
+                    else if(arr[mid]<k){
+                        low=mid+1;
+                    }
+                    else{
+                        high=mid-1;
+                    }
+                }
+                if(low==0){
+                    return arr[0];
+                }
+                if(low==n){
+                    return arr[n-1];
+                }
+                int left=arr[low-1];
+                int right=arr[low];
+                int diff1=Math.abs(k-left);
+                int diff2=Math.abs(k-right);
+                if(diff1<diff2){
+                    return left;
+                }
+                else if(diff2<diff1){
+                    return right;
+                }
+                else{
+                    return Math.max(left,right);
+                }
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/find-the-closest-number5513/1
+
+
+4.PRINT GEEKSFORGEEKS 
+Comment the code that outputs "Hello World", so that "GeeksForGeeks" gets printed.
+SOURCE CODE : 
+        import java.util.*;
+        class GFG {
+            public static void main(String args[]) {
+                // Prints Hello World
+                //System.out.println("Hello World");
+                // Prints GeeksForGeeks
+                System.out.println("GeeksForGeeks");
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/print-geeksforgeeks--141628/1
+
+
+5.LEAP YEAR 
+Given an integer year. Print "True" (without quotes) if it can represent a leap year, otherwise print "False" (without quotes).
+SOURCE CODE : 
+        import java.util.*;
+        public class Solution {
+            public static void solve() {
+                Scanner sc = new Scanner(System.in);
+                int year = sc.nextInt();
+                if((year%4==0 && year%100!=0)||year%400==0){
+                    System.out.println("True");
+                }
+                else{
+                    System.out.println("False");
+                }
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/leap-year-1598599919--155509/1
