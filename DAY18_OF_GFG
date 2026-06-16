@@ -1,0 +1,225 @@
+1.FILL METHOD 
+Given an integer array arr[] and an integer k. Fill arr with integer k.
+SOURCE CODE : 
+        class Solution {
+            public static void fillArray(int arr[], int k) {
+                Arrays.fill(arr,k);
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/fill-method/1
+
+
+2.PRINT SQUARE WALL 
+Given an integer n,  write a program to print the square wall of size n using a single loop and string multiplication. 
+SOURCE CODE : 
+        import java.util.Scanner;
+        class GFG {
+            public static void main(String args[]) {
+                Scanner sc = new Scanner(System.in);
+                int n = sc.nextInt();
+                for(int i=1;i<=n;i++){
+                    for(int j=1;j<=n;j++){
+                        System.out.print("*"+" ");
+                    }
+                    System.out.println();
+                }
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/print-square-wall-1605682270--111211/1
+
+
+3.SWITCH STATEMENT 
+Given a number n, use a switch statement to return "One" if the given number is equal to 1, "Two" if the number is 2 and so on till 
+9 ("Nine") else return "Unknown"(without quotes). 
+SOURCE CODE : 
+        import java.util.Scanner;
+        class GFG {
+            public static void main(String[] args) {
+                Scanner sc = new Scanner(System.in);
+                int n = sc.nextInt();
+                switch(n){
+                    case 1:
+                        System.out.println("One");
+                        break;
+                    case 2:
+                        System.out.println("Two");
+                        break;
+                    case 3:
+                        System.out.println("Three");
+                        break;
+                    case 4:
+                        System.out.println("Four");
+                        break;
+                    case 5:
+                        System.out.println("Five");
+                        break;
+                    case 6:
+                        System.out.println("Six");
+                        break;
+                    case 7:
+                        System.out.println("Seven");
+                        break;
+                    case 8:
+                        System.out.println("Eight");
+                        break;
+                    case 9:
+                        System.out.println("Nine");
+                        break;
+                    default:
+                        System.out.println("Unknown");
+                        break;
+                }
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/switch-statement/1
+
+
+4.WHILE LOOP 
+Given a number x, the task is to print the numbers from x to 0 in decreasing order in a single line.
+SOURCE CODE : 
+        class Solution {
+            public static void utility(int x) {
+                while(x>=0){
+                    System.out.print(x+" ");
+                    x--;
+                }
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/while-loop/1
+
+
+5.THE ELSE STATEMENT 
+Take an interger input a, and then use the if statement to print "Big" (without quotes) if the given number is greater than 100, 
+and use the else statement to print "Small" (without quotes) when the number is smaller than or equal to 100.
+SOURCE CODE : 
+        import java.util.Scanner;
+        class GFG {
+            public static void main(String args[]) {
+                Scanner sc = new Scanner(System.in);
+                int a = sc.nextInt();
+                if(a>100){
+                    System.out.println("Big");
+                }
+                else{
+                    System.out.println("Small");
+                }
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/the-else-statement--115735/1
+
+
+6.LARGEST ELEMENTS 
+Given an array arr[] of positive integers and an integer k, Your task is to return k largest elements in decreasing order. 
+SOURCE CODE :
+        class Solution {
+            public ArrayList<Integer> kLargest(int[] arr, int k) {
+                Arrays.sort(arr);
+                int n=arr.length;
+                ArrayList<Integer> list=new ArrayList<>();
+                for(int i=n-1;i>-1;i--){
+                    if(list.size()<k){
+                        list.add(arr[i]);
+                    }
+                }
+                return list;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/k-largest-elements4206/1
+
+
+7.SUM OF MIDDLE OF TWO SORTED ARRAYS 
+Given two sorted integer arrays arr1[] and arr2[] of the same size. Find the sum of the middle elements of two sorted arrays arr1 and arr2.
+SOURCE CODE : 
+        class Solution {
+            public int SumofMiddleElements(int[] arr1, int[] arr2) {
+                int res[]=new int[arr1.length+arr2.length];
+                for(int i=0;i<arr1.length;i++){
+                    res[i]=arr1[i];
+                }
+                for(int i=0;i<arr2.length;i++){
+                    res[arr1.length+i]=arr2[i];
+                }
+                Arrays.sort(res);
+                int sum=res[res.length/2-1]+res[res.length/2];
+                return sum;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/sum-of-middle-elements-of-two-sorted-arrays2305/1
+
+
+8.MEDIAN OF 2 SORTED ARRAYS OF DIFFERENT SIZES 
+Given two sorted arrays a[] and b[], find and return the median of the combined array after merging them into a single sorted array.
+SOURCE CODE : 
+        class Solution {
+            public double medianOf2(int a[], int b[]) {
+                double median=0.0;
+                int res[]=new int[a.length+b.length];
+                for(int i=0;i<a.length;i++){
+                    res[i]=a[i];
+                }
+                for(int i=0;i<b.length;i++){
+                    res[a.length+i]=b[i];
+                }
+                Arrays.sort(res);
+                if(res.length%2==0){
+                    median=(res[res.length/2-1]+res[res.length/2])/2.0;
+                }
+                else{
+                    median=res[res.length/2];
+                }
+                return median;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/median-of-2-sorted-arrays-of-different-sizes/1
+
+
+9.MEDIAN OF 2 SORTED ARRAYS OF SAME SIZES 
+Given two sorted arrays a[] and b[] of equal size, find and return the median of the combined array after merging them into a single sorted array.
+SOURCE CODE : 
+        class Solution {
+            public double medianOf2(int a[], int b[]) {
+                int n=a.length;
+                int res[]=new int[2*n];
+                for(int i=0;i<n;i++){
+                    res[i]=a[i];
+                }
+                for(int i=0;i<n;i++){
+                    res[n+i]=b[i];
+                }
+                Arrays.sort(res);
+                double median=(res[(2*n/2)-1]+res[2*n/2])/2.0;
+                return median;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/median-of-2-sorted-arrays-of-same-size/1
+
+
+10.CANDY 
+There are n children standing in a line. Each child is assigned a rating value given in the integer array arr[]. You are giving candies to these children subjected to the following requirements:
+    -> Each child must have at least one candy.
+    -> Children with a higher rating than their neighbors get more candies than their neighbors.
+Return the minimum number of candies you need to have to distribute.
+SOURCE CODE : 
+        class Solution {
+            public int minCandy(int arr[]) {
+                int n=arr.length;
+                int candy[]=new int[n];
+                Arrays.fill(candy,1);
+                for(int i=1;i<n;i++){
+                    if(arr[i]>arr[i-1]){
+                        candy[i]=candy[i-1]+1;
+                    }
+                }
+                for(int i=n-2;i>=0;i--){
+                    if(arr[i]>arr[i+1]){
+                        candy[i]=Math.max(candy[i],candy[i+1]+1);
+                    }
+                }
+                int totalCandies=0;
+                for(int i=0;i<n;i++){
+                    totalCandies+=candy[i];
+                }
+                return totalCandies;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/candy/1
