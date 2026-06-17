@@ -1,0 +1,106 @@
+1.GET SMALLER ELEMENTS 
+Given an array arr, return all the elements which are less than a given value x. The order of returned smaller elements should be according their appearance in the input array. 
+SOURCE CODE : 
+        class Solution {
+            public static ArrayList<Integer> getSmaller(int arr[], int target) {
+                ArrayList<Integer> list=new ArrayList<>();
+                for(int i=0;i<arr.length;i++){
+                    if(arr[i]<target){
+                        list.add(arr[i]);
+                    }
+                }
+                return list;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/get-smaller-elements/1
+
+
+2.COUNT OF DIGIT K IN ARRAY : 
+Given an array arr[]. Your task is to return an integer denoting the total number of times digit k appears in the array.
+SOURCE CODE : 
+        class Solution {
+            public int countDigitK(int k, int arr[]) {
+                int count=0;
+                for(int i=0;i<arr.length;i++){
+                    while(arr[i]>0){
+                        int div=arr[i]%10;
+                        if(div==k){
+                            count++;
+                        }
+                        arr[i]/=10;
+                    }
+                }
+                return count;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/find-number-of-numbers/1
+
+
+3.INDEX OF AN EXTRA ELEMENT 
+You have given two sorted arrays a[] & b[] of distinct elements. The first array has one element extra added in between. Return the index of the extra element.
+SOURCE CODE : 
+        class Solution {
+            public int findExtra(int a[], int b[]) {
+                int low=0;
+                int high=b.length-1;
+                int ans=a.length-1;
+                while(low<=high){
+                    int mid=low+(high-low)/2;
+                    if(a[mid]==b[mid]){
+                        low=mid+1;
+                    }
+                    else{
+                        ans=mid;
+                        high=mid-1;
+                    }
+                }
+                return ans;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/index-of-an-extra-element/1
+
+
+4.ROOF TOP 
+You are given and array arr[] representing the heights of n consecutive buildings. You can move from the roof of a building to the roof of the next adjacent building. 
+You need to find the maximum number of consecutive steps you can put forward such that every step is to a higher building than the previous one. 
+SOURCE CODE : 
+class Solution {
+    public int maxStep(int arr[]) {
+        int count=0;
+        int maxCount=0;
+        for(int i=0;i<arr.length-1;i++){
+            if(arr[i]<arr[i+1]){
+                count++;
+                maxCount=Math.max(maxCount,count);
+            }
+            else{
+                count=0;
+            }
+        }
+        return maxCount;
+    }
+}
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/roof-top-1587115621/1
+
+
+5.NEXT PRIME NUMBER 
+Given an integer n. Write a program to find the first prime number greater than n.
+SOURCE CODE : 
+        class Solution {
+            public static int nextPrime(int n) {
+                for(int i=n+1;i<=500;i++){
+                    boolean isprime=true;
+                    for(int j=2;j<=Math.sqrt(i);j++){
+                        if(i%j==0){
+                            isprime=false;
+                            break;
+                        }
+                    }
+                    if(isprime){
+                        return i;
+                    }
+                }
+                return -1;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/next-prime-number/1
