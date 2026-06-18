@@ -1,0 +1,152 @@
+1.FIND THE FINE 
+Given an array of car numbers car[], an array of penalties fine[], and an integer date, determine the total fine collected on that date. 
+The fine is collected based on parity, i.e., on an even date, fines are collected from odd-numbered cars, and on an odd date, fines are collected from even-numbered cars.
+SOURCE CODE : 
+        class Solution {
+            public long totalFine(int date, int car[], int fine[]) {
+                long collectFine=0;
+                for(int i=0;i<car.length;i++){
+                   if((date%2==0 && car[i]%2!=0)||(date%2!=0 && car[i]%2==0)){
+                       collectFine+=fine[i];
+                   }
+                }
+                return collectFine;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/find-the-fine4353/1
+
+
+2.FIRST 1 IN A SORTED BINARY ARRAY 
+Given a sorted array arr consisting of 0s and 1s. The task is to find the index (0-based indexing) of the first 1 in the given array.
+SOURCE CODE : 
+        class Solution {
+            public long firstIndex(int arr[]) {
+                // Your code goes here
+                for(int i=0;i<arr.length;i++){
+                    if(arr[i]==1){
+                        return i;
+                    }
+                }
+                return -1;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/index-of-first-1-in-a-sorted-array-of-0s-and-1s4048/1
+
+
+3.SUM OF DISTINCT ELEMENTS 
+You are given an array arr. Find the sum of distinct elements in an array.
+SOURCE CODE : 
+        class Solution {
+            int findSum(int[] arr) {
+                Arrays.sort(arr);
+                int sum=arr[0];
+                for(int i=1;i<arr.length;i++){
+                    if(arr[i-1]!=arr[i]){
+                        sum+=arr[i];
+                    }
+                }
+                return sum;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/sum-of-distinct-elements4801/1
+
+
+4.REMOVE DUPLICATES FROM UNSORTED 
+Given an array arr[] of integers which may or may not contain duplicate elements. Your task is to remove duplicate elements. 
+Your result should have elements according their first appearance in the input array.
+SOURCE CODE : 
+class Solution {
+    static ArrayList<Integer> removeDuplicate(int arr[]) {
+        LinkedHashSet<Integer> set=new LinkedHashSet<>();
+        for(int num:arr){
+            set.add(num);
+        }
+        return new ArrayList<>(set);
+    }
+}
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/remove-duplicates-from-unsorted-array4141/1
+
+
+5.MAX AND MIN PRODUCT FROM 2 ARRAYS 
+Given two arrays of arr1 and arr2, the task is to calculate the product of the maximum element of the first array arr1, and minimum element of the second array arr2.
+SOURCE CODE : 
+        class Solution {
+            public long minMaxProduct(int[] arr1, int[] arr2) {
+                long max=arr1[0];
+                long min=arr2[0];
+                for(int x:arr1){
+                    max=Math.max(max,x);
+                }
+                for(int x:arr2){
+                    min=Math.min(min,x);
+                }
+                return max*min;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/product-of-maximum-in-first-array-and-minimum-in-second3943/1
+
+
+6.REDUCE ELEMENTS BY K 
+You are given an array arr[] and an integer k. In one operation you can choose any element of array and decrease its value by k.
+Find the minimum number of operation such that all the elements in the array becomes less or equal to k.
+SOURCE CODE : 
+        class Solution {
+            public int minOps(int[] arr, int k) {
+                int count=0;
+                for(int num:arr){
+                    if(num>k){
+                        count+=(num-1)/k;
+                    }
+                }
+                return count;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/reducing-walls4443/1
+
+
+7.UNION OF 2 SORTED ARRAYS 
+Given two sorted arrays a[] and b[], where each array may contain duplicate elements , the task is to return the elements in the union of the two arrays in sorted order.
+Union of two arrays can be defined as the set containing distinct common elements that are present in either of the arrays.
+SOURCE CODE : 
+        class Solution {
+            public static ArrayList<Integer> findUnion(int a[], int b[]) {
+                TreeSet<Integer> set=new TreeSet<>();
+                for(int i=0;i<a.length;i++){
+                    set.add(a[i]);
+                }
+                for(int i=0;i<b.length;i++){
+                    set.add(b[i]);
+                }
+                return new ArrayList<>(set);
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/union-of-two-sorted-arrays-1587115621/1
+
+
+8.INTERSECTION OF TWO SORTED ARRAYS 
+Given two sorted arrays arr1[] and arr2[]. Your task is to return the intersection of both arrays.
+Intersection of two arrays is said to be elements that are common in both arrays. The intersection should not count duplicate elements.
+SOURCE CODE : 
+        class Solution {
+            public ArrayList<Integer> intersection(int arr1[], int arr2[]) {
+                ArrayList<Integer> list=new ArrayList<>();
+                int i=0,j=0;
+                while(i<arr1.length && j<arr2.length){
+                    if(arr1[i]==arr2[j]){
+                        if(list.isEmpty() || list.get(list.size()-1)!=arr1[i]){
+                            list.add(arr1[i]);
+                        }
+                        i++;
+                        j++;
+                    }
+                    else if(arr1[i]<arr2[j]){
+                        i++;
+                    }
+                    else{
+                        j++;
+                    }
+                }
+                return list;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/intersection-of-two-sorted-array-1587115620/1
