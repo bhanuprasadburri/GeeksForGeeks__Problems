@@ -46,6 +46,7 @@ This repository is regularly updated with newly solved GeeksforGeeks problems.
 ## 🔥 Learning Philosophy
 
 > "Small daily improvements lead to remarkable results over time."
+>
 > "Consistency is the key to improvement. Every solved problem is one step closer to becoming a better programmer."
 
 ## 📂 Repository Structure
