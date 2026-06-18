@@ -5,7 +5,7 @@ Welcome to my GeeksforGeeks problem-solving repository!
 This repository contains solutions to problems I solve on GeeksforGeeks as part of my Data Structures & Algorithms (DSA) learning journey. The goal is to improve problem-solving skills, strengthen coding fundamentals, and prepare for technical interviews.
 
 ## 📅 Journey Started
-June 2026
+30 May 2026
 
 ## 💻 Language Used
 - Java
