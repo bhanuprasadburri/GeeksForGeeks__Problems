@@ -1,0 +1,132 @@
+1.FIRST DIGIT OF A NUMBER 
+Given a number n, find the first digit of the number.
+SOURCE CODE : 
+        class Solution {
+            public static int firstDigit(int n) {
+                while(n>=10){
+                    n/=10;
+                }
+                return n;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/first-digit-of-a-number/1
+
+
+2.ALL DIVISORS OF A NUMBER 
+Given an integer n, return all the divisors of n in the ascending order.
+SOURCE CODE : 
+        class Solution {
+            public ArrayList<Integer> getDivisors(int n) {
+                ArrayList<Integer> list=new ArrayList<>();
+                for(int i=1;i*i<=n;i++){
+                    if(n%i==0){
+                        list.add(i);
+                        if(i!=n/i){
+                            list.add(n/i);
+                        }
+                    }
+                }
+                Collections.sort(list);
+                return list;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/all-divisors-of-a-number/1
+
+
+3.FACTORIALS LESS THAN OR EQUAL TO N 
+A number n is called a factorial number if it is the factorial of a positive integer. For example, the first few factorial numbers are 1, 2, 6, 24, 120,
+Given a number n, the task is to return the list/vector of the factorial numbers smaller than or equal to n.
+SOURCE CODE : 
+        class Solution {
+            static ArrayList<Long> factorialNumbers(long n) {
+                ArrayList<Long> list=new ArrayList<>();
+                long fact=1;
+                for(int i=1;;i++){
+                    fact*=i;
+                    if(fact>n){
+                        break;
+                    }
+                    list.add(fact);
+                }
+                return list;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/find-all-factorial-numbers-less-than-or-equal-to-n3548/1?problemType=functional&query=problemTypefunctionaldifficulty%5B%5D-1page1&page=1&difficulty%5B%5D=-1
+
+
+4.NTH TERM OF GP FROM FIRST TWO TERMS 
+Given the first 2 terms a and b of a Geometric Series. The task is to find the nth term of the series.
+SOURCE CODE : 
+        class Solution {
+            public int termOfGP(int a, int b, int n) {
+                double r=(double)b/a;
+                return (int) (a*Math.pow(r,n-1));
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/gp-term/1
+
+
+5.MEAN AND MEDIAN OF ARRAY 
+Given an array of positive integer arr[]. Find the mean and median of the array. 
+Where mean is the average value of the given array, median is the average of the two middle elements.
+SOURCE CODE : 
+        class Solution {
+            public int mean(int[] arr) {
+                int sum=0;
+                for(int num:arr){
+                    sum+=num;
+                }
+                return sum/arr.length;
+            }
+            public int median(int[] arr) {
+                Arrays.sort(arr);
+                if(arr.length%2!=0){
+                    return arr[arr.length/2];
+                }
+                else{
+                    return (arr[(arr.length/2)-1]+arr[arr.length/2])/2;
+                }
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/mean-and-median-1587115620/1
+
+
+6.TWO REPEATED ELEMENTS 
+You are given an integer array arr of size n+2. All elements of the array are in the range from 1 to n. Also, all elements occur once except two numbers which occur twice. Find the two repeating numbers.
+Note: Return the numbers in their order of appearing twice. So, if x and y are repeating numbers, and x's second appearance comes before the second appearance of y, then the order should be (x, y).
+SOURCE CODE : 
+        class Solution {
+            public int[] twoRepeated(int[] arr) {
+                HashMap<Integer,Integer> map=new HashMap<>();
+                int res[]=new int[2];
+                int count=0;
+                for(int num:arr){
+                    map.put(num, map.getOrDefault(num,0)+1);
+                    if(map.get(num)==2){
+                        res[count++]=num;
+                    }
+                }
+                return res;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/two-repeated-elements-1587115621/1
+
+
+7.STOCK BUY AND SELL-MAX ONE TRANSACTION ALLOWED 
+Given an array prices[] of non-negative integers, representing the prices of the stocks on different days. 
+The task is to find the maximum profit possible by buying and selling the stocks on different days when at most one transaction is allowed. 
+Here one transaction means 1 buy + 1 Sell. If it is not possible to make a profit then return 0.
+SOURCE CODE : 
+        class Solution {
+            public int maxProfit(int[] prices) {
+                int minPrice=prices[0];
+                int maxPrice=0;
+                for(int stock:prices){
+                    int profit=stock-minPrice;
+                    minPrice=Math.min(stock,minPrice);
+                    maxPrice=Math.max(profit,maxPrice);
+                }
+                return maxPrice;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/buy-stock-2/1
