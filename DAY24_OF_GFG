@@ -1,0 +1,85 @@
+1.TRIPLET SUM IN ARRAY
+Given an array arr[] and an integer target, determine if there exists a triplet in the array whose sum equals the given target.
+Return true if such a triplet exists, otherwise, return false.
+SOURCE CODE : 
+        class Solution {
+            public boolean hasTripletSum(int arr[], int target) {
+                Arrays.sort(arr);
+                for(int i=0;i<arr.length-2;i++){
+                    int left=i+1;
+                    int right=arr.length-1;
+                    while(left<right){
+                        int sum=arr[i]+arr[left]+arr[right];
+                        if(sum==target){
+                            return true;
+                        }
+                        else if(sum<target){
+                            left++;
+                        }
+                        else {
+                            right--;
+                        }
+                    }
+                }
+                return false;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/triplet-sum-in-array-1587115621/1
+
+
+2.SORT ELEMENTS BY DECREASING FREQUENCY 
+Given an array of integers arr[], sort the array according to the frequency of elements, i.e. elements that have higher frequency comes first. 
+If the frequencies of two elements are the same, then the smaller number comes first.
+SOURCE CODE : 
+        class Solution {
+            public ArrayList<Integer> sortByFreq(int arr[]) {
+                HashMap<Integer,Integer> map=new HashMap<>();
+                ArrayList<Integer> list=new ArrayList<>();
+                for(int num:arr){
+                    map.put(num,map.getOrDefault(num,0)+1);
+                }
+                for(int num:arr){
+                    list.add(num);
+                }
+                Collections.sort(list,(a,b)->{
+                    int freqA=map.get(a);
+                    int freqB=map.get(b);
+                    if(freqA==freqB){
+                        return a-b;
+                    }
+                    return freqB-freqA;
+                });
+                return list;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/sorting-elements-of-an-array-by-frequency-1587115621/1
+
+
+3.FIND TRIPLETS WITH ZERO SUM 
+Given an array arr[] of integers, determine whether it contains a triplet whose sum equals zero. Return true if such a triplet exists, otherwise, return false.
+SOURCE CODE : 
+        class Solution {
+            public boolean findTriplets(int[] arr) {
+                Arrays.sort(arr);
+                for(int i=0;i<arr.length-2;i++){
+                    int left=i+1;
+                    int right=arr.length-1;
+                    while(left<right){
+                        int sum=arr[i]+arr[left]+arr[right];
+                        if(sum==0){
+                            return true;
+                        }
+                        else if(sum>0){
+                            right--;
+                        }
+                        else{
+                            left++;
+                        }
+                    }
+                }
+                return false;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/find-triplets-with-zero-sum/1
+
+
