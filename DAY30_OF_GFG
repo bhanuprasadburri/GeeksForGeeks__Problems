@@ -1,0 +1,107 @@
+1.LAST COIN IN A GAME OF ALTERNATES 
+Given an array integer arr[] , representing the values of coins arranged in a row.
+Two players play a game by picking coins alternately.
+At each turn, a player can pick a coin from either the beginning or the end of the array. Both players follow a greedy strategy, i.e., they always pick the coin with the maximum value among the two available ends.
+The game continues until only one coin remains.
+Find the value of the last remaining coin.
+SOURCE CODE : 
+        class Solution {
+            public int coin(int[] arr) {
+                // code here
+                int first=0;
+                int last=arr.length-1;
+                while(first<last){
+                    if(arr[first]>=arr[last]){
+                        first++;
+                    }
+                    else{
+                        last--;
+                    }
+                }
+                return arr[first];
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/last-coin-in-a-game-of-alternates/1
+
+
+2.THE SPIDER STEPS 
+A spider present at the bottom of the well of height H, needs to get out of it. 
+The walls of the well are very slippery. In each step, it climbs U metres and slips down D metres. 
+If in the last step, the spider gets out of the well by climbing U metres, it does not slip back. 
+Find the number of steps the spider takes.
+SOURCE CODE : 
+        class Solution {
+            static int minStep(int H, int U, int D) {
+                // code here
+                if(U>H){
+                    return 1;
+                }
+                int meters=U-D;
+                return (H-U+meters)/meters+1;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/the-spider-steps3600/1
+
+
+3.SEATING ARRANGEMENT 
+Given an integer k representing the number of people to be seated and an array seats[], where 0 denotes an empty seat and 1 denotes an occupied seat.
+Determine whether it is possible to seat all k people such that no two occupied seats are adjacent (including newly seated people).
+SOURCE CODE : 
+        class Solution {
+            public boolean canSeatAllPeople(int k, int[] seats) {
+                int n=seats.length;
+                for(int i=0;i<n-1;i++){
+                    if(seats[i]==1 && seats[i+1]==1){
+                        return false;
+                    }
+                }
+                for(int i=0;i<n && k>0;i++){
+                    if(seats[i]==0 && (i==0 || seats[i-1]==0) && 
+                    (i==n-1 || seats[i+1]==0)){
+                        seats[i]=1;
+                        k--;
+                        i++;
+                    }
+                }
+                return k==0;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/seating-arrangement--170647/1
+
+
+4.SUM EXCEPT FIRST AND LAST 
+You are given an array arr of numbers. Return the sum of all the elements except the first and last elements.
+SOURCE CODE : 
+        class Solution {
+            int sumExceptFirstLast(int[] arr) {
+                // your code here
+                if(arr.length<=2){
+                    return 0;
+                }
+                int sum=0;
+                for(int i=1;i<arr.length-1;i++){
+                    sum+=arr[i];
+                }
+                return sum;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/max-length-chain/1
+
+
+5.STOCK BUY AND SELL
+Given an array arr[] denoting the cost of stock on each day, the task is to find the maximum total profit if we can buy and sell the stocks any number of times.
+Note: We can only sell a stock which we have bought earlier and we cannot hold multiple stocks on any day.
+SOURCE CODE : 
+        class Solution {
+            int stockBuySell(int arr[]) {
+                // code here
+                int profit=0;
+                for(int i=1;i<arr.length;i++){
+                    if(arr[i]>arr[i-1]){
+                        profit+=arr[i]-arr[i-1];
+                    }
+                }
+                return profit;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/stock-buy-and-sell-1587115621/1
