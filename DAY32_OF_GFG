@@ -1,0 +1,67 @@
+1.REVERSE A STRING 
+You are given a string s, and your task is to reverse the string.
+SOURCE CODE : 
+        class Solution {
+            public static String reverseString(String s) {
+                // code here
+                char rev[]=s.toCharArray();
+                for(int i=s.length()-1,j=0;i>=0;i--,j++){
+                    rev[j]=s.charAt(i);
+                }
+                return new String(rev);
+            }
+            
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/reverse-a-string/1
+
+
+2.CHECK FOR BINARY STRING 
+Given a non-empty sequence of characters s, return true if sequence is Binary, else return false.
+SOURCE CODE : 
+        class Solution {
+            public static boolean isBinary(String s) {
+                for(int i=0;i<s.length();i++) {
+                    if (s.charAt(i)!='0' && s.charAt(i)!='1') {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/check-for-binary/1
+
+
+3.LONGEST WORD 
+Given an array arr[] containing strings of names. Your task is to return the longest string. If there are multiple names of the longest size, return the first occurring name.
+SOURCE CODE : 
+        class Solution {
+            public String longest(List<String> arr) {
+                String max=arr.get(0);
+                for(int i=1;i<arr.size();i++){
+                    if(arr.get(i).length()>max.length()){
+                        max=arr.get(i);
+                    }
+                }
+                return max;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/display-longest-name0853/1
+
+
+4.REMOVE VOWELS FROM STRING 
+Given a string s. Your task is to remove the vowels from the string.
+SOURCE CODE : 
+        class Solution {
+            String removeVowels(String s) {
+                StringBuilder ans=new StringBuilder();
+                for(int i=0;i<s.length();i++){
+                    char ch=s.charAt(i);
+                    if(ch!='a' && ch!='e' && ch!='i' &&
+                        ch!='o' && ch!='u'){
+                        ans.append(ch);
+                    }
+                }
+                return ans.toString();
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/remove-vowels-from-string1446/1
