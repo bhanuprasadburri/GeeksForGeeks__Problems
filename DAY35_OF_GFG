@@ -1,0 +1,152 @@
+1.IDENTICAL LINKED LISTS 
+Given the heads of two singly linked lists, head1 and head2, the task is to determine whether the two linked lists are identical. 
+Two linked lists are considered identical if they have the same number of nodes and each corresponding node contains the same data in the same order. 
+Return true if both lists are identical; otherwise, return false.
+SOURCE CODE : 
+/* Structure of a Node
+        class Node {
+            int data;
+            Node next;
+
+            public Node(int data){
+                this.data = data;
+                this.next = null;
+            }
+        }*/
+        class Solution {
+            public boolean areIdentical(Node head1, Node head2) {
+                // code here
+                Node temp1=head1;
+                Node temp2=head2;
+                while(temp1!=null && temp2!=null){
+                    if(temp1.data!=temp2.data){
+                        return false;
+                    }
+                    temp1=temp1.next;
+                    temp2=temp2.next;
+                }
+                return temp1==null && temp2==null;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/identical-linked-lists/1
+
+
+2.BALANCED ARRAY 
+Given an array arr[] of even size, find the minimum value that needs to be added to any one element so that the array becomes balanced. 
+An array is considered balanced when the sum of elements in the left half is equal to the sum of elements in the right half.
+SOURCE CODE : 
+        class Solution {
+            public int minValueToBalance(List<Integer> arr) {
+                // code here
+                int sum1=0;
+                for(int i=0;i<arr.size()/2;i++){
+                    sum1+=arr.get(i);
+                }
+                int sum2=0;
+                for(int i=arr.size()/2;i<arr.size();i++){
+                    sum2+=arr.get(i);
+                }
+                return Math.abs(sum1-sum2);
+            }
+        };
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/balanced-array07200720/1
+
+
+3.REVERSE A LINKED LIST 
+You are given the head of a singly linked list. You need to reverse the linked list and return the head of the reversed list.
+SOURCE CODE : 
+        /*
+        class Node {
+            int data;
+            Node next;
+
+            Node(int x) {
+                data = x;
+                next = null;
+            }
+        }
+        */
+
+        class Solution {
+            Node reverseList(Node head) {
+                // code here
+                Node next=null;
+                Node curr=head;
+                Node prev=null;
+                while(curr!=null){
+                    next=curr.next;
+                    curr.next=prev;
+                    prev=curr;
+                    curr=next;
+                }
+                return prev;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/reverse-a-linked-list/1
+
+
+4.INSERT IN A SORTED LIST 
+Given a linked list sorted in ascending order and an integer called key, insert data in the linked list such that the list remains sorted.
+SOURCE CODE : 
+        /*class Node
+            {
+                int data;
+                Node next;
+                Node(int d) {data = d; next = null; }
+            }*/
+
+        // sortedInsert method should return the head of the modified linked list.
+        class Solution {
+            Node sortedInsert(Node head, int key) {
+                // Add your code here.
+                Node newnode=new Node(key);
+                if(head==null || key<=head.data){
+                    newnode.next=head;
+                    return newnode;
+                }
+                Node temp=head;
+                while(temp.next!=null && temp.next.data<key){
+                    temp=temp.next;
+                }
+                newnode.next=temp.next;
+                temp.next=newnode;
+                return head;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/insert-in-a-sorted-list/1
+
+
+5.MINIMUM JUMPS 
+You are given an array arr[] of non-negative numbers. Each number tells you the maximum number of steps you can jump forward from that position.
+For example:
+If arr[i] = 3, you can jump to index i + 1, i + 2, or i + 3 from position i.
+If arr[i] = 0, you cannot jump forward from that position.
+Your task is to find the minimum number of jumps needed to move from the first position in the array to the last position.
+Note:  Return -1 if you can't reach the end of the array.
+SOURCE CODE : 
+        class Solution {
+            public int minJumps(int[] arr) {
+                int n=arr.length;
+                if(n==1)
+                    return 0;
+                if(arr[0]==0)
+                    return -1;
+                int maxReach=arr[0];
+                int steps=arr[0];
+                int jumps=1;
+                for(int i=1;i<n;i++){
+                    if(i==n-1)
+                        return jumps;
+                    maxReach=Math.max(maxReach,i+arr[i]);
+                    steps--;
+                    if(steps==0){
+                        jumps++;
+                        if(i>=maxReach)
+                            return -1;
+                        steps=maxReach-i;
+                    }
+                }
+                return -1;
+            }
+        }
+PROBLEM LINK : https://www.geeksforgeeks.org/problems/minimum-number-of-jumps-1587115620/1
